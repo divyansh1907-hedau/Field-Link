@@ -584,7 +584,7 @@ HTML_PAGE = r"""
     <div class="badge">FL</div>
     <div class="titlewrap">
       <div style="font-weight:700;font-size:18px">FieldLink</div>
-      <div class="subtitle">Smart farming assistant — தமிழ் & English</div>
+      <div class="subtitle">Smart farming assistant </div>
     </div>
   </div>
 
@@ -624,7 +624,7 @@ HTML_PAGE = r"""
           <div><label>Variety (optional)</label><input id="mkVariety" placeholder="e.g., 1009 Kar"></div>
         </div>
         <div class="row2" style="margin-top:8px">
-          <div><label>State (optional)</label><input id="mkState" placeholder="e.g., Tamil Nadu"></div>
+          <div><label>State (optional)</label><input id="mkState" placeholder="e.g., Maharashtra"></div>
         </div>
         <div style="margin-top:10px"><button class="btn" onclick="runMarket()">Analyze Market</button></div>
         <div id="mkResult" style="margin-top:14px"></div>
@@ -633,7 +633,7 @@ HTML_PAGE = r"""
 
       <div id="panelGov" style="display:none">
         <div class="row2">
-          <div style="grid-column:1/-1"><label>Ask about Government schemes (தமிழ்/English)</label></div>
+          <div style="grid-column:1/-1"><label>Ask about Government schemes </label></div>
           <div style="grid-column:1/-1"><input id="govQ" placeholder="Type your question…"></div>
         </div>
         <div style="margin-top:8px"><button class="btn" onclick="askGeminiGov()">Ask</button></div>
@@ -644,7 +644,7 @@ HTML_PAGE = r"""
         <div><label>Ask anything about your saved crop folder</label></div>
         <div class="row2">
           <input id="aiFolder" placeholder="folder name e.g., Rice-20250820-221306">
-          <input id="aiQ" placeholder="Question (தமிழ்/English)">
+          <input id="aiQ" placeholder="Question....">
         </div>
         <div style="margin-top:8px"><button class="btn" onclick="askGeminiAI()">Ask AI Farmer</button></div>
         <div id="aiA" style="margin-top:12px;white-space:pre-wrap"></div>
@@ -683,7 +683,7 @@ HTML_PAGE = r"""
 <div class="fab" id="fab">💬</div>
 <div class="fabpanel" id="fabPanel">
   <div style="font-weight:700;margin-bottom:6px">Ask MiniBotix</div>
-  <input id="miniQ" placeholder="Type your question (தமிழ்/English)…">
+  <input id="miniQ" placeholder="Type your question…">
   <div style="margin-top:8px"><button class="btn" onclick="askMini()">Ask</button></div>
   <div id="miniA" style="margin-top:8px;white-space:pre-wrap"></div>
 </div>
@@ -826,38 +826,38 @@ function startCropFlow(){
     try{ arr = JSON.parse(j.text); }catch(_){}
     if(!Array.isArray(arr) || arr.length<8){
       arr = [
-        {"en":"Rice","ta":"அரிசி"},{"en":"Wheat","ta":"கோதுமை"},{"en":"Paddy","ta":"நெல்"},
-        {"en":"Maize","ta":"சோளம்"},{"en":"Bajra (Pearl millet)","ta":"கம்பு"},
-        {"en":"Jowar (Sorghum)","ta":"சோளம் (ஜோவர்)"},{"en":"Ragi (Finger millet)","ta":"கேழ்வரகு"},
-        {"en":"Barley","ta":"யவம்"},{"en":"Sugarcane","ta":"கரும்பு"},{"en":"Cotton","ta":"பருத்தி"},
-        {"en":"Groundnut","ta":"வேர்க்கடலை"},{"en":"Mustard","ta":"கடுகு"},{"en":"Sesame","ta":"எள்"},
-        {"en":"Sunflower","ta":"சூரியகாந்தி"},{"en":"Soybean","ta":"சோயாபீன்"},{"en":"Castor","ta":"ஆமணக்கு"},
-        {"en":"Tea","ta":"தேயிலை"},{"en":"Coffee","ta":"காபி"},{"en":"Rubber","ta":"ரப்பர்"},
-        {"en":"Coconut","ta":"தேங்காய்"},{"en":"Arecanut","ta":"பாக்கு"},{"en":"Banana","ta":"வாழை"},
-        {"en":"Mango","ta":"மாம்பழம்"},{"en":"Guava","ta":"கொய்யா"},{"en":"Papaya","ta":"பப்பாளி"},
-        {"en":"Pomegranate","ta":"மாதுளை"},{"en":"Grapes","ta":"திராட்சை"},{"en":"Apple","ta":"ஆப்பிள்"},
-        {"en":"Pineapple","ta":"அன்னாசி"},{"en":"Orange","ta":"ஆரஞ்சு"},{"en":"Lemon","ta":"எலுமிச்சை"},
-        {"en":"Sweet Lime","ta":"சாத்துக்குடி"},{"en":"Litchi","ta":"லிச்சி"},{"en":"Jackfruit","ta":"பலாப்பழம்"},
-        {"en":"Onion","ta":"வெங்காயம்"},{"en":"Garlic","ta":"பூண்டு"},{"en":"Potato","ta":"உருளைக்கிழங்கு"},
-        {"en":"Tomato","ta":"தக்காளி"},{"en":"Brinjal (Eggplant)","ta":"கத்தரிக்காய்"},
-        {"en":"Okra (Lady’s finger)","ta":"வெண்டைக்காய்"},{"en":"Chillies","ta":"மிளகாய்"},
-        {"en":"Capsicum","ta":"குடைமிளகாய்"},{"en":"Cabbage","ta":"முட்டைகோசு"},{"en":"Cauliflower","ta":"பூக்கோசு"},
-        {"en":"Peas","ta":"பட்டாணி"},{"en":"French Beans","ta":"பீன்ஸ்"},{"en":"Bitter Gourd","ta":"பாகற்காய்"},
-        {"en":"Bottle Gourd","ta":"சுரைக்காய்"},{"en":"Ridge Gourd","ta":"பீர்க்கங்காய்"},{"en":"Pumpkin","ta":"பூசணிக்காய்"},
-        {"en":"Coriander","ta":"கொத்தமல்லி"},{"en":"Cumin","ta":"சீரகம்"},{"en":"Turmeric","ta":"மஞ்சள்"},
-        {"en":"Ginger","ta":"இஞ்சி"},{"en":"Cardamom","ta":"ஏலக்காய்"},{"en":"Black Pepper","ta":"மிளகு"},
-        {"en":"Clove","ta":"கிராம்பு"},{"en":"Nutmeg","ta":"ஜாதிக்காய்"},{"en":"Fennel","ta":"பெருஞ்சீரகம்"},
-        {"en":"Fenugreek","ta":"வெந்தயம்"},{"en":"Bengal Gram (Chana)","ta":"கொண்டைக்கடலை"},
-        {"en":"Green Gram (Moong)","ta":"பசிப்பயறு"},{"en":"Black Gram (Urad)","ta":"உளுந்து"},
-        {"en":"Pigeon Pea (Tur)","ta":"துவரம் பருப்பு"},{"en":"Horse Gram","ta":"கொள்ளு"},
-        {"en":"Masoor (Red Lentil)","ta":"மசூர் பருப்பு"},{"en":"Field Pea","ta":"உளுந்தங்கொண்டை"},
-        {"en":"Linseed (Flax)","ta":"ஆளிவிதை"},{"en":"Safflower","ta":"குசும்பு"},{"en":"Tobacco","ta":"புகையிலை"},
-        {"en":"Jute","ta":"சணல்"},{"en":"Hemp","ta":"ஆஞ்சி"},{"en":"Kenaf","ta":"கேணாப்"},
-        {"en":"Curry Leaf","ta":"கருவேப்பிலை"},{"en":"Drumstick (Moringa)","ta":"முருங்கை"},
-        {"en":"Cucumber","ta":"வெள்ளரிக்காய்"},{"en":"Watermelon","ta":"தர்பூசணி"},
-        {"en":"Muskmelon","ta":"முலாம்பழம்"},{"en":"Amla (Gooseberry)","ta":"நெல்லிக்காய்"},
-        {"en":"Sapota (Chikoo)","ta":"சப்போட்டா"},{"en":"Pear","ta":"பேரிக்காய்"},{"en":"Strawberry","ta":"ஸ்ட்ராபெர்ரி"},
-        {"en":"Custard Apple","ta":"சீதாப்பழம்"},{"en":"Betel Leaf","ta":"வெற்றிலை"},{"en":"Tamarind","ta":"புளி"}
+        {"en":"Rice","ta":"तांदूळ"},{"en":"Wheat","ta":"गहू"},{"en":"Paddy","ta":"धान"},
+        {"en":"Maize","ta":"कॉर्न"},{"en":"Bajra (Pearl millet)","ta":"राई"},
+        {"en":"Jowar (Sorghum)","ta":"कॉर्न (ज्वारी)"},{"en":"Ragi (Finger millet)","ta":"बातम्या"},
+        {"en":"Barley","ta":"रस"},{"en":"Sugarcane","ta":"ऊस"},{"en":"Cotton","ta":"कापूस"},
+        {"en":"Groundnut","ta":"शेंगदाणे"},{"en":"Mustard","ta":"मोहरी"},{"en":"Sesame","ta":"तीळ"},
+        {"en":"Sunflower","ta":"सूर्यफूल"},{"en":"Soybean","ta":"सोयाबीन"},{"en":"Castor","ta":"एरंडेल तेल"},
+        {"en":"Tea","ta":"चहा"},{"en":"Coffee","ta":"कॉफी"},{"en":"Rubber","ta":"रबर"},
+        {"en":"Coconut","ta":"नारळ"},{"en":"Arecanut","ta":"कुरकुरीत"},{"en":"Banana","ta":"केळी"},
+        {"en":"Mango","ta":"आंबा"},{"en":"Guava","ta":"पेरू"},{"en":"Papaya","ta":"पपई"},
+        {"en":"Pomegranate","ta":"डाळिंब"},{"en":"Grapes","ta":"द्राक्षे"},{"en":"Apple","ta":"सफरचंद"},
+        {"en":"Pineapple","ta":"अननस"},{"en":"Orange","ta":"संत्रा"},{"en":"Lemon","ta":"लिंबू"},
+        {"en":"Sweet Lime","ta":"साठीकुडी"},{"en":"Litchi","ta":"लीची"},{"en":"Jackfruit","ta":"फणस"},
+        {"en":"Onion","ta":"कांदा"},{"en":"Garlic","ta":"लसूण"},{"en":"Potato","ta":"बटाटे"},
+        {"en":"Tomato","ta":"तमतर"},{"en":"Brinjal (Eggplant)","ta":"वांगे"},
+        {"en":"Okra (Lady’s finger)","ta":"मेथी"},{"en":"Chillies","ta":"मिरची"},
+        {"en":"Capsicum","ta":"मिरची"},{"en":"Cabbage","ta":"कोबी"},{"en":"Cauliflower","ta":"फुलकोबी"},
+        {"en":"Peas","ta":"वाटाणे"},{"en":"French Beans","ta":"बीन्स"},{"en":"Bitter Gourd","ta":"कॅन्टलूप"},
+        {"en":"Bottle Gourd","ta":"झुचिनी"},{"en":"Ridge Gourd","ta":"बिरकंकाई"},{"en":"Pumpkin","ta":"भोपळा"},
+        {"en":"Coriander","ta":"धणे"},{"en":"Cumin","ta":"जिरे"},{"en":"Turmeric","ta":"पिवळा"},
+        {"en":"Ginger","ta":"आले"},{"en":"Cardamom","ta":"वेलची"},{"en":"Black Pepper","ta":"मिरपूड"},
+        {"en":"Clove","ta":"लवंग"},{"en":"Nutmeg","ta":"जायफळ"},{"en":"Fennel","ta":"बडीशेप"},
+        {"en":"Fenugreek","ta":"मेथी"},{"en":"Bengal Gram (Chana)","ta":"चणे"},
+        {"en":"Green Gram (Moong)","ta":"भूक"},{"en":"Black Gram (Urad)","ta":"चणे"},
+        {"en":"Pigeon Pea (Tur)","ta":"ढोले डाळ"},{"en":"Horse Gram","ta":"मिळवा"},
+        {"en":"Masoor (Red Lentil)","ta":"मसूर डाळ"},{"en":"Field Pea","ta":"उलंटांगोंडाई"},
+        {"en":"Linseed (Flax)","ta":"जलबी"},{"en":"Safflower","ta":"केशर"},{"en":"Tobacco","ta":"तंबाखू"},
+        {"en":"Jute","ta":"भांग"},{"en":"Hemp","ta":"अँजी"},{"en":"Kenaf","ta":"भांग"},
+        {"en":"Curry Leaf","ta":"कॅरवे"},{"en":"Drumstick (Moringa)","ta":"ड्रमस्टिक"},
+        {"en":"Cucumber","ta":"काकडी"},{"en":"Watermelon","ta":"टरबूज"},
+        {"en":"Muskmelon","ta":"खरबूज"},{"en":"Amla (Gooseberry)","ta":"गुसबेरी"},
+        {"en":"Sapota (Chikoo)","ta":"सापोटा"},{"en":"Pear","ta":"नाशपाती"},{"en":"Strawberry","ta":"स्ट्रॉबेरी"},
+        {"en":"Custard Apple","ta":"चित्ता"},{"en":"Betel Leaf","ta":"सुपारी"},{"en":"Tamarind","ta":"चिंच"}
       ];
     }
     const grid=S('cropList'); grid.innerHTML='';
